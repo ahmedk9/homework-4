@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order Movies</title>
+        <link rel="stylesheet" href="lib/bootstrap-3.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="shortcut icon" href="img/logo.png">
+    </head>
+    <body>
+        <div class="container">
+
+            <h1 class="page-title"><img src="img/logo.png" alt="Site logo"> Movies for Sale</h1>
+
+            <p class="lead">Who needs selection? Choose from the top box office hits of last year. Add to your cart to purchase.</p>
+
+            <div class="row">
+                <div class="col-md-4 col-md-push-8">
+                    <h2>Your Cart</h2>
+                    <div class="cart-items-container"></div>
+                    <div class="cart-footer">
+                        <div class="row total-row">
+                            <div class="col-xs-10">
+                                Total:
+                            </div>
+                            <div class="col-xs-2">
+                                $<span class="total-price"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 button-row">
+                                <button type="button" class="btn btn-primary place-order">Place My Order</button>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-md-8 col-md-pull-4">
+                    <div class="movies-container"></div>        
+                </div>
+            </div>
+
+        </div> <!-- .container -->
+
+        <div class="templates">
+
+            <!-- movie template -->
+            <div class="movie-template movie clearfix">
+
+                <img class="pic" src="" alt="">
+                <h2 class="title"></h2>
+
+                <p class="format-template">
+                    <button type="button" class="btn btn-default add-to-cart">
+                        Buy on <img src="" alt="logo for format" class="format-logo"> 
+                        for $<span class="format-price"></span>
+                    </button>
+                </p>
+
+            </div>
+
+            <!-- cart item template -->
+            <div class="cart-item-template cart-item row">
+                <div class="col-xs-10">
+                    <p><button type="button" class="btn btn-default btn-xs remove-item">&times;</button> 
+                        <span class="title"></span> (<span class="formatLabel"></span>)
+                    </p>
+                </div>
+                <div class="col-xs-2 col-price">
+                    <p>$<span class="price"></span></p>
+                </div>
+            </div>
+
+        </div> <!-- .templates -->
+        
+        <script src="lib/jquery-2.0.3/jquery-2.0.3.min.js"></script>
+
+        <!-- our own JavaScript files -->
+        <script src="js/utils.js"></script>
+        <script src="js/events.js"></script>
+        <script src="js/models.js"></script>
+        <script src="js/views.js"></script>
+        <script src="js/movies.js"></script>
+        <script src="js/movieView.js"></script>
+        <script src="js/moviesView.js"></script>
+        <script src="js/cart.js"></script>
+        <script src="js/cartItemView.js"></script>
+        <script src="js/cartView.js"></script>
+        <script src="js/controller.js"></script>
+<p>github link: https://github.com/ahmedk9/lab8</p>
+    </body>
+</html>
