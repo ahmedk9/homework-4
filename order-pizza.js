@@ -111,6 +111,7 @@ function submitForm(){
     $("#jsonForm").val(JSON.stringify(cart));
         $(".address-form").find('[type="submit"]').trigger("click");
 }
+
 function drinks(){
     var idx;
     var drink
@@ -167,6 +168,12 @@ $(function(){
         } else {
             $(".minimum").html("To deliver, the total should be at least $20.");
         }
+    });
+    $(".clear-cart").click(function(){
+        cart.clearCart();
+        total = 0;
+        $(".cart-item").not(".template-cart").remove();
+        $(".cart-price").html("Total: $0 ");
     });
  })
 

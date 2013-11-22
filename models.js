@@ -17,7 +17,7 @@ function CartModel(input){
 	this.items = [];
 
 	this.clearCart = function(){
-		items = [];
+		this.items = [];
 	};
 
 	this.populateInfo = function(input){
@@ -58,7 +58,7 @@ this.getQuantity = function(item){
 };
 
  
-    
+
 	this.removeItem = function(item){
 		var index = this.existsInCart(item);
 		if(index > -1){
