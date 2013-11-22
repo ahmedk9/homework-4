@@ -16,9 +16,9 @@ function pizza(){
         clonedTemplate.find(".description").html(pizza.description);
 
 
-        clonedTemplate.find(".small").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "Small" data-price = "'+ pizza.prices[0] + '">' + "Small $" + pizza.prices[0] + '</button>' + " " );
-        clonedTemplate.find(".medium").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "Medium" data-price = "'+ pizza.prices[1] + '">' + "Medium $" + pizza.prices[1] + '</button>' + " " );
-        clonedTemplate.find(".large").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "Large" data-price = "'+ pizza.prices[2] + '">' + "Large $" + pizza.prices[2] + '</button>' + " ");
+        clonedTemplate.find(".small").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "small" data-price = "'+ pizza.prices[0] + '">' + "Small $" + pizza.prices[0] + '</button>' + " " );
+        clonedTemplate.find(".medium").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "medium" data-price = "'+ pizza.prices[1] + '">' + "Medium $" + pizza.prices[1] + '</button>' + " " );
+        clonedTemplate.find(".large").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "large" data-price = "'+ pizza.prices[2] + '">' + "Large $" + pizza.prices[2] + '</button>' + " ");
 
 
         clonedTemplate.removeClass("template-pizzas");
@@ -47,7 +47,7 @@ function addToCart() {
         name : name,
         type : type,
         size : size,
-        quantity : 0
+        quantity : 1
     });
 
     if (cart.existsInCart(item) == -1) {
@@ -65,8 +65,8 @@ function addToCart() {
     } else {
         cart.addItem(item);
         var itemHtml = $('.cart-item[data-name="' + name + '"].cart-item[data-size="' + size + '"]');
-        itemHtml.html(cart.getQuantity(item) + 1 + "x $" +price +" " + size + " " + name + "<span class=\"glyphicon glyphicon-remove\"></span>");
-        itemHtml.attr("data-quantity", cart.getQuantity(item) + 1);
+        itemHtml.html(cart.getQuantity(item)  + "x $" +price +" " + size + " " + name + "<span class=\"glyphicon glyphicon-remove\"></span>");
+        itemHtml.attr("data-quantity", cart.getQuantity(item));
     }
 
     total += price;
@@ -89,7 +89,7 @@ function removeFromCart() {
             quantity : 0
         });
 
-        total -= price * (cart.getQuantity(item) + 1);
+        total -= price * (cart.getQuantity(item));
     $(".cart-price").html("Total: " + "$" + total + " + $" + (total * 0.095).toFixed(2) + "(Tax) = " + (total * 1.095).toFixed(2));
 
         cart.removeItem(item);
@@ -99,7 +99,18 @@ function removeFromCart() {
             $(".cart-price").html("Total: $0 ");
         }
     }
+function submitForm(){
+    cart.populateInfo({
+        name: $(".form-name").val(),
+        address1: $(".form-line1").val(),
+        address2: $(".form-line2").val(),
+        zip: $(".form-zip").val(),
+        phone: $(".form-phone").val(),
+    });
 
+    $("#jsonForm").val(JSON.stringify(cart));
+        $(".address-form").find('[type="submit"]').trigger("click");
+}
 function drinks(){
     var idx;
     var drink
@@ -150,7 +161,9 @@ $(function(){
     $(".submit-order-btn").click(function(){
          if (total >= 20) {
             $("#submitOrderForm").modal();
+             $(".finalSubmitButton").click(submitForm);
             $(".minimum").html("");
+
         } else {
             $(".minimum").html("To deliver, the total should be at least $20.");
         }
