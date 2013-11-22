@@ -70,7 +70,7 @@ function addToCart() {
     }
 
     total += price;
-    $(".cart-price").html(total);
+    $(".cart-price").html( "$ " +total);
     
 }
 function removeFromCart() {
@@ -90,7 +90,7 @@ function removeFromCart() {
         });
 
         total -= price * (cart.getQuantity(item) + 1);
-        $(".cart-price").html(total);
+        $(".cart-price").html("$" + total);
 
         cart.removeItem(item);
         $(this).remove();
@@ -112,7 +112,7 @@ function drinks(){
         clonedTemplate = template.clone();
 
         clonedTemplate.find(".name").html(drink.name);
-        clonedTemplate.find(".price").html("$" + drink.price);
+        clonedTemplate.find(".price").html('<button type= "button" class="btn btn-default btn-xs" data-type = "drink" data-name = "'+ drink.name +'" data-price = "'+ drink.price + '">' + " $" + drink.price + '</button>' + " ");
 
 
         clonedTemplate.removeClass("template-drinks");
