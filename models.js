@@ -49,9 +49,18 @@ function CartModel(input){
 		}
 		return -1;
 	};
+this.getQuantity = function(item){
+	var i = this.existsInCart(item);
+	if(i == -1){
+		return 0;
+	}
+	return this.items[i].quantity;
+};
 
+ 
+    
 	this.removeItem = function(item){
-		var index = this.items.indexOf(item);
+		var index = this.existsInCart(item);
 		if(index > -1){
 			this.items.splice(index,1);
 		}

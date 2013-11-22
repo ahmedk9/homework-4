@@ -17,6 +17,20 @@ body{
     font-size: 18px;
 }
 
+.cart, .cart-price {
+    float: right;
+    clear: right;
+}
+
+.cart-item {
+    margin: 5px;
+    display: block;
+}
+
+.template-cart {
+    display:none;
+}
+
 .content-box {
     width: 90%;
     margin: 0 auto;
@@ -91,7 +105,7 @@ h2{
 }
 
 .col {
-    float: left;
+    /*float: left;*/
     width: 50%;
     padding: 2%;
 }
