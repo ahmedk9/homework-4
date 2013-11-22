@@ -16,9 +16,9 @@ function pizza(){
         clonedTemplate.find(".description").html(pizza.description);
 
 
-        clonedTemplate.find(".small").html('<button type= "button" class="btn btn-default btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "small" data-price = "'+ pizza.prices[0] + '">' + "Small $" + pizza.prices[0] + '</button>' + " " );
-        clonedTemplate.find(".medium").html('<button type= "button" class="btn btn-default btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "medium" data-price = "'+ pizza.prices[1] + '">' + "Medium $" + pizza.prices[1] + '</button>' + " " );
-        clonedTemplate.find(".large").html('<button type= "button" class="btn btn-default btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "large" data-price = "'+ pizza.prices[2] + '">' + "Large $" + pizza.prices[2] + '</button>' + " ");
+        clonedTemplate.find(".small").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "small" data-price = "'+ pizza.prices[0] + '">' + "Small $" + pizza.prices[0] + '</button>' + " " );
+        clonedTemplate.find(".medium").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "medium" data-price = "'+ pizza.prices[1] + '">' + "Medium $" + pizza.prices[1] + '</button>' + " " );
+        clonedTemplate.find(".large").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "pizza" data-name = "'+ pizza.name + '" data-size = "large" data-price = "'+ pizza.prices[2] + '">' + "Large $" + pizza.prices[2] + '</button>' + " ");
 
 
         clonedTemplate.removeClass("template-pizzas");
@@ -70,7 +70,7 @@ function addToCart() {
     }
 
     total += price;
-    $(".cart-price").html( "$ " +total);
+    $(".cart-price").html( "Total: $ " +total);
     
 }
 function removeFromCart() {
@@ -90,7 +90,7 @@ function removeFromCart() {
         });
 
         total -= price * (cart.getQuantity(item) + 1);
-        $(".cart-price").html("$" + total);
+        $(".cart-price").html("Total: $" + total);
 
         cart.removeItem(item);
         $(this).remove();
@@ -112,7 +112,7 @@ function drinks(){
         clonedTemplate = template.clone();
 
         clonedTemplate.find(".name").html(drink.name);
-        clonedTemplate.find(".price").html('<button type= "button" class="btn btn-default btn-xs" data-type = "drink" data-name = "'+ drink.name +'" data-price = "'+ drink.price + '">' + " $" + drink.price + '</button>' + " ");
+        clonedTemplate.find(".price").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "drink" data-name = "'+ drink.name +'" data-price = "'+ drink.price + '">' + " $" + drink.price + '</button>' + " ");
 
 
         clonedTemplate.removeClass("template-drinks");
@@ -134,7 +134,7 @@ function desserts(){
         clonedTemplate = template.clone();
 
         clonedTemplate.find(".name").html(dessert.name);
-        clonedTemplate.find(".price").html("$" + dessert.price);
+        clonedTemplate.find(".price").html('<button type= "button" class="btn btn-primary btn-xs" data-type = "dessert" data-name = "'+ dessert.name +'" data-price = "'+ dessert.price + '">' + " $" + dessert.price + '</button>' + " ");
 
 
         clonedTemplate.removeClass("template-dessert");
