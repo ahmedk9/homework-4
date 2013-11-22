@@ -17,8 +17,20 @@ body{
     font-size: 18px;
 }
 
-.cart, .cart-price {
+.minimum{
+    font-size: 10px;
+    color: red;
+}
+
+.shopping {
     float: right;
+}
+.submit-order-btn{
+    /*float: right;*/
+   margin-right: 10px;
+}
+.cart, .cart-price {
+    /*float: right;*/
     clear: right;
 }
 

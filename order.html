@@ -35,21 +35,28 @@
 			<div class="row">
 			    	<img class="photo-menu" src="img/order.jpg" alt="Order sign on glass">   	
 						<dl>
-							<dt>All our pizzas are made with hand-thrown thin crust, baked in real wood ovens. Choose from one of these sizes:</dt>
-							<dd>Small (12")</dd>
-							<dd>Medium (14")</dd>
-							<dd>Large (17")</dd>
+							<dt>We deliver only within the Seattle city limits, and only from noon to 11:00pm. We accept cash or credit cards on delivery.</dt>
+							
 						</dl>
-							<h3>All pizzas can be customized--add a few ingredients, or take a few off--for an extra $2.</h3>
-
+							<h3>Click on the blue button below the item to add it to the cart.</h3>
+				<div class="shopping col-lg-3">
 				<div class="cart">
 					<p>Your Cart</p>
 					<button type="button" class="btn btn-primary template-cart cart-item"></button>
 				</div>
+
+				<div class = "submit-order-btn">
+					<button type="button" class="btn btn-danger btn-lrg submit-order-btn">
+                        Checkout <span class="glyphicon glyphicon-shopping-cart"></span>
+                    </button>
+				</div>
 				<div class="cart-price">
 					Total: $0
+					
 				</div>
-		<article>
+				<div class="minimum"></div>	
+				</div>
+					<article>
 
                      <div class=" menu col col-left meat">
                         <p class = "p-menu">Meat Pies:</p>
@@ -90,6 +97,49 @@
                 	   </div>
                 </div>
 
+<div class="modal fade" id="submitOrderForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                        &times;
+                                                </button>
+                                                <h4 class="modal-title" id="modalTitle">Where do you live?</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                                <form method="post" action="http://dawgpizza.com/orders/">
+                                                        <div class="form-group">
+                                                                <label for="name">Name</label>
+                                                                <input type="text" class="form-control" placeholder="Name" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label for="address">Address</label>
+                                                                <input type="text" class="form-control" placeholder="Line 1" required>
+                                                                <input type="text" class="form-control" placeholder="Line 2">
+                                                        </div>
+                                                        <div class="row">
+                                                                <div class="form-group col-xs-3">
+                                                                        <label for="zip">Zip Code</label>
+                                                                        <input type="number" class="form-control" min="10000" max="99999" placeholder="Zip Code" required>
+                                                                </div>
+                                                                <div class="form-group col-xs-6">
+                                                                        <label for="phone">Phone Number</label>
+                                                                        <input type="text" class="form-control" placeholder="Phone Number" required>
+                                                                </div>
+                                                        </div>
+                                                </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary finalSubmitButton">
+                                                        Submit Order
+                                                </button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
 		</article>
 
 		<footer>
